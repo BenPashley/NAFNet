@@ -74,6 +74,32 @@ def create_lmdb_for_gopro():
     # img_path_list, keys = prepare_keys(folder_path, 'png')
     # make_lmdb_from_imgs(folder_path, lmdb_path, img_path_list, keys)
 
+def create_lmdb_for_histo():
+    folder_path = './datasets/histo/train/blur_crops'
+    lmdb_path = './datasets/histo/train/blur_crops.lmdb'
+
+    img_path_list, keys = prepare_keys(folder_path, 'png')
+    make_lmdb_from_imgs(folder_path, lmdb_path, img_path_list, keys)
+
+    folder_path = './datasets/histo/train/sharp_crops'
+    lmdb_path = './datasets/histo/train/sharp_crops.lmdb'
+
+    img_path_list, keys = prepare_keys(folder_path, 'png')
+    make_lmdb_from_imgs(folder_path, lmdb_path, img_path_list, keys)
+
+    folder_path = './datasets/histo/test/target'
+    lmdb_path = './datasets/histo/test/target.lmdb'
+
+    img_path_list, keys = prepare_keys(folder_path, 'png')
+    make_lmdb_from_imgs(folder_path, lmdb_path, img_path_list, keys)
+
+    folder_path = './datasets/histo/test/input'
+    lmdb_path = './datasets/histo/test/input.lmdb'
+
+    img_path_list, keys = prepare_keys(folder_path, 'png')
+    make_lmdb_from_imgs(folder_path, lmdb_path, img_path_list, keys)
+
+
 def create_lmdb_for_rain13k():
     folder_path = './datasets/Rain13k/train/input'
     lmdb_path = './datasets/Rain13k/train/input.lmdb'
