@@ -5,7 +5,7 @@
 # Copyright 2018-2020 BasicSR Authors
 # ------------------------------------------------------------------------
 # general settings
-name: NAFNet-GoPro-width32
+name: NAFNet-histo-width32
 model_type: ImageRestorationModel
 scale: 1
 num_gpu: 8
@@ -13,10 +13,10 @@ manual_seed: 42
 
 datasets:
   train:
-    name: gopro-train
+    name: histo-train
     type: PairedImageDataset
-    dataroot_gt: ./datasets/GoPro/train/sharp_crops.lmdb
-    dataroot_lq: ./datasets/GoPro/train/blur_crops.lmdb
+    dataroot_gt: ../data/train/sharp_crops.lmdb
+    dataroot_lq: ../data/train/blur_crops.lmdb
 
     filename_tmpl: '{}'
     io_backend:
@@ -34,10 +34,10 @@ datasets:
     prefetch_mode: ~
 
   val:
-    name: gopro-test
+    name: histo-test
     type: PairedImageDataset
-    dataroot_gt: ./datasets/GoPro/test/target.lmdb
-    dataroot_lq: ./datasets/GoPro/test/input.lmdb
+    dataroot_gt: ../data/histo/test/target.lmdb
+    dataroot_lq: ../data/histo/test/input.lmdb
     io_backend:
       type: lmdb
 
