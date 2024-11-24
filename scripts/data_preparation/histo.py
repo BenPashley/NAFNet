@@ -20,22 +20,35 @@ def main():
     opt['n_thread'] = 20
     opt['compression_level'] = 3
 
-    opt['input_folder'] = './datasets/histo/train/input'
-    opt['save_folder'] = './datasets/histo/train/blur_crops'
+    opt['input_folder'] = '/home/openpatho/histo-deblur/data/train/input'
+    opt['save_folder'] = '/home/openpatho/histo-deblur/data/final/train/blur_crops'
     opt['crop_size'] = 500
     opt['step'] = 256
     opt['thresh_size'] = 0
     extract_subimages(opt)
 
-    opt['input_folder'] = './datasets/histo/train/target'
-    opt['save_folder'] = './datasets/histo/train/sharp_crops'
+    opt['input_folder'] = '/home/openpatho/histo-deblur/data/train/target'
+    opt['save_folder'] = '/home/openpatho/histo-deblur/data/final/train/sharp_crops'
     opt['crop_size'] = 500
     opt['step'] = 256
     opt['thresh_size'] = 0
     extract_subimages(opt)
 
+    opt['input_folder'] = '/home/openpatho/histo-deblur/data/val/input'
+    opt['save_folder'] = '/home/openpatho/histo-deblur/data/final/test/input'
+    opt['crop_size'] = 500
+    opt['step'] = 256
+    opt['thresh_size'] = 0
+    extract_subimages(opt)
+
+    opt['input_folder'] = '/home/openpatho/histo-deblur/data/val/target'
+    opt['save_folder'] = '/home/openpatho/histo-deblur/data/final/test/target'
+    opt['crop_size'] = 500
+    opt['step'] = 256
+    opt['thresh_size'] = 0
+    extract_subimages(opt)
+    
     create_lmdb_for_histo()
-
 
 def extract_subimages(opt):
     """Crop images to subimages.
