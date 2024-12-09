@@ -8,20 +8,19 @@
 name: NAFNet-GoPro-width64
 model_type: ImageRestorationModel
 scale: 1
-num_gpu: 8
+num_gpu: 1
 manual_seed: 10
 
 datasets:
   train:
-    name: gopro-train
+    name: histo-train
     type: PairedImageDataset
-    dataroot_gt: ./datasets/GoPro/train/sharp_crops.lmdb
-    dataroot_lq: ./datasets/GoPro/train/blur_crops.lmdb
-
+    dataroot_gt: /home/openpatho/Projects/data/5 - final/train/sharp_crops
+    dataroot_lq: /home/openpatho/Projects/data/5 - final/train/blur_crops
     filename_tmpl: '{}'
     io_backend:
-      type: lmdb
-
+      type: 'disk'
+    max_size: 50
     gt_size: 256
     use_flip: true
     use_rot: true
@@ -34,12 +33,12 @@ datasets:
     prefetch_mode: ~
 
   val:
-    name: gopro-test
+    name: histo-test
     type: PairedImageDataset
-    dataroot_gt: ./datasets/GoPro/test/target.lmdb
-    dataroot_lq: ./datasets/GoPro/test/input.lmdb
+    dataroot_gt: /home/openpatho/Projects/data/5 - final/test/target
+    dataroot_lq: /home/openpatho/Projects/data/5 - final/test/input
     io_backend:
-      type: lmdb
+      type: 'disk'
 
 
 network_g:
@@ -80,7 +79,7 @@ train:
 # validation settings
 val:
   val_freq: !!float 2e4
-  save_img: false
+  save_img: true
 
 
   metrics:

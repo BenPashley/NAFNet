@@ -210,8 +210,10 @@ def paired_paths_from_meta_info_file(folders, keys, meta_info_file,
     return paths
 
 
-def paired_paths_from_folder(folders, keys, filename_tmpl):
-    """Generate paired paths from folders.
+import random
+
+def paired_paths_from_folder(folders, keys, filename_tmpl, max_samples=None, shuffle=False):
+    """Generate paired paths from folders, with optional random sampling.
 
     Args:
         folders (list[str]): A list of folder path. The order of list should
@@ -221,9 +223,13 @@ def paired_paths_from_folder(folders, keys, filename_tmpl):
         filename_tmpl (str): Template for each filename. Note that the
             template excludes the file extension. Usually the filename_tmpl is
             for files in the input folder.
+        max_samples (int, optional): The maximum number of samples to return.
+            If None, all samples will be returned. Default: None.
+        shuffle (bool, optional): If True, randomly samples the paths. 
+            Default: False.
 
     Returns:
-        list[str]: Returned path list.
+        list[dict]: Returned path list.
     """
     assert len(folders) == 2, (
         'The len of folders should be 2 with [input_folder, gt_folder]. '
@@ -239,8 +245,15 @@ def paired_paths_from_folder(folders, keys, filename_tmpl):
     assert len(input_paths) == len(gt_paths), (
         f'{input_key} and {gt_key} datasets have different number of images: '
         f'{len(input_paths)}, {len(gt_paths)}.')
+
+    indices = list(range(len(input_paths)))
+    if shuffle:
+        random.shuffle(indices)
+
     paths = []
-    for idx in range(len(gt_paths)):
+    for idx in indices:
+        if max_samples is not None and len(paths) >= max_samples:
+            break
         gt_path = gt_paths[idx]
         basename, ext = osp.splitext(osp.basename(gt_path))
         input_path = input_paths[idx]
@@ -254,7 +267,6 @@ def paired_paths_from_folder(folders, keys, filename_tmpl):
             dict([(f'{input_key}_path', input_path),
                   (f'{gt_key}_path', gt_path)]))
     return paths
-
 
 def paths_from_folder(folder):
     """Generate paths from folder.

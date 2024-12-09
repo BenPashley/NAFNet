@@ -20,33 +20,33 @@ def main():
     opt['n_thread'] = 20
     opt['compression_level'] = 3
 
-    opt['input_folder'] = '/home/openpatho/histo-deblur/data/train/input'
-    opt['save_folder'] = '/home/openpatho/histo-deblur/data/final/train/blur_crops'
-    opt['crop_size'] = 500
-    opt['step'] = 256
-    opt['thresh_size'] = 0
-    extract_subimages(opt)
+    # opt['input_folder'] = '/home/openpatho/Projects/data/4 - split/train/blurred'
+    # opt['save_folder'] = '/home/openpatho/Projects/data/5 - final/train/blur_crops'
+    # opt['crop_size'] = 512
+    # opt['step'] = 256
+    # opt['thresh_size'] = 0
+    # extract_subimages(opt)
 
-    opt['input_folder'] = '/home/openpatho/histo-deblur/data/train/target'
-    opt['save_folder'] = '/home/openpatho/histo-deblur/data/final/train/sharp_crops'
-    opt['crop_size'] = 500
-    opt['step'] = 256
-    opt['thresh_size'] = 0
-    extract_subimages(opt)
+    # opt['input_folder'] = '/home/openpatho/Projects/data/4 - split/train/original'
+    # opt['save_folder'] = '/home/openpatho/Projects/data/5 - final/train/sharp_crops'
+    # opt['crop_size'] = 512
+    # opt['step'] = 256
+    # opt['thresh_size'] = 0
+    # extract_subimages(opt)
 
-    opt['input_folder'] = '/home/openpatho/histo-deblur/data/val/input'
-    opt['save_folder'] = '/home/openpatho/histo-deblur/data/final/test/input'
-    opt['crop_size'] = 500
-    opt['step'] = 256
-    opt['thresh_size'] = 0
-    extract_subimages(opt)
+    # opt['input_folder'] = '/home/openpatho/Projects/data/4 - split/test/blurred'
+    # opt['save_folder'] = '/home/openpatho/Projects/data/5 - final/test/input'
+    # opt['crop_size'] = 500
+    # opt['step'] = 250
+    # opt['thresh_size'] = 0
+    # extract_subimages(opt)
 
-    opt['input_folder'] = '/home/openpatho/histo-deblur/data/val/target'
-    opt['save_folder'] = '/home/openpatho/histo-deblur/data/final/test/target'
-    opt['crop_size'] = 500
-    opt['step'] = 256
-    opt['thresh_size'] = 0
-    extract_subimages(opt)
+    # opt['input_folder'] = '/home/openpatho/Projects/data/4 - split/test/original'
+    # opt['save_folder'] = '/home/openpatho/Projects/data/5 - final/test/target'
+    # opt['crop_size'] = 512
+    # opt['step'] = 256
+    # opt['thresh_size'] = 0
+    # extract_subimages(opt)
     
     create_lmdb_for_histo()
 

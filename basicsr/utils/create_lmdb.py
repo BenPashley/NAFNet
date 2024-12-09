@@ -75,26 +75,26 @@ def create_lmdb_for_gopro():
     # make_lmdb_from_imgs(folder_path, lmdb_path, img_path_list, keys)
 
 def create_lmdb_for_histo():
-    folder_path = '/home/openpatho/histo-deblur/data/final/train/blur_crops'
-    lmdb_path = '/home/openpatho/histo-deblur/data/final/train/blur_crops.lmdb'
+    folder_path = '/home/openpatho/Projects/data/5 - final/train/blur_crops'
+    lmdb_path = '/home/openpatho/Projects/data/5 - final_lmdb/train/blur_crops.lmdb'
 
     img_path_list, keys = prepare_keys(folder_path, 'png')
     make_lmdb_from_imgs(folder_path, lmdb_path, img_path_list, keys)
 
-    folder_path = '/home/openpatho/histo-deblur/data/final/train/sharp_crops'
-    lmdb_path = '/home/openpatho/histo-deblur/data/final/train/sharp_crops.lmdb'
+    folder_path = '/home/openpatho/Projects/data/5 - final/train/sharp_crops'
+    lmdb_path = '/home/openpatho/Projects/data/5 - final_lmdb/train/sharp_crops.lmdb'
 
     img_path_list, keys = prepare_keys(folder_path, 'png')
     make_lmdb_from_imgs(folder_path, lmdb_path, img_path_list, keys)
 
-    folder_path = '/home/openpatho/histo-deblur/data/final/test/target'
-    lmdb_path = '/home/openpatho/histo-deblur/data/final/test/target.lmdb'
+    folder_path = '/home/openpatho/Projects/data/5 - final/test/target'
+    lmdb_path = '/home/openpatho/Projects/data/5 - final_lmdb/test/target.lmdb'
 
     img_path_list, keys = prepare_keys(folder_path, 'png')
     make_lmdb_from_imgs(folder_path, lmdb_path, img_path_list, keys)
 
-    folder_path = '/home/openpatho/histo-deblur/data/final/test/input'
-    lmdb_path = '/home/openpatho/histo-deblur/data/final/test/input.lmdb'
+    folder_path = '/home/openpatho/Projects/data/5 - final/test/input'
+    lmdb_path = '/home/openpatho/Projects/data/5 - final_lmdb/test/input.lmdb'
 
     img_path_list, keys = prepare_keys(folder_path, 'png')
     make_lmdb_from_imgs(folder_path, lmdb_path, img_path_list, keys)
